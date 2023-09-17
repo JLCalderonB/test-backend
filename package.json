@@ -1,0 +1,15 @@
+{
+  "name": "test-backend",
+  "version": "1.0.0",
+  "description": "backend de prueba",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sequelize": "^6.33.0"
+  }
+}
