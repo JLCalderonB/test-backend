@@ -1,5 +1,6 @@
 const express = require('express');
 const sequelize = require('./sequelize');
+const User = require('./models/User'); // Ajusta la ruta según tu estructura de carpetas
 
 const app = express();
 
