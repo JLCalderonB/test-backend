@@ -16,7 +16,7 @@ sequelize
         console.error('Error al conectar a la base de datos:', error);
     });
 
-sequelize.sync()
+sequelize.sync({ force: true })
     .then(() => {
         console.log('Modelos sincronizados con la base de datos');
     })
