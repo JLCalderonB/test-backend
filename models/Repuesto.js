@@ -1,32 +1,21 @@
-
 const { DataTypes } = require('sequelize');
-const sequelize = require('../sequelize');
+const sequelize = require('../db-connection');
 
-
-const User = sequelize.define('User', {
-    user_id: {
+const Repuesto = sequelize.define('Repuesto', {
+    repuesto_id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
         allowNull: false
     },
-    username: {
+    rep_num_parte: {
         type: DataTypes.STRING(45),
         allowNull: false,
         unique: true
     },
-    password: {
+    rep_desc: {
         type: DataTypes.STRING(45),
         allowNull: false
-    },
-    user_perfil: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
-    user_email: {
-        type: DataTypes.STRING(45),
-        allowNull: false,
-        unique: true
     }
 },
     {
@@ -34,4 +23,4 @@ const User = sequelize.define('User', {
         Timestamps: false
     });
 
-module.exports = User;
+module.exports = Repuesto;
