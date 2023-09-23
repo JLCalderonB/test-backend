@@ -17,3 +17,10 @@ const Stock = require('./Stock');
 const User = require('./User');
 const Vehiculo = require('./Vehiculo');
 
+Perfil.hasMany(User, {
+    foreignKey: {
+        name: 'user_perfil',
+        allowNull: false
+    }
+})
+
