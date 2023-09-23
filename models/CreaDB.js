@@ -22,5 +22,18 @@ Perfil.hasMany(User, {
         name: 'user_perfil',
         allowNull: false
     }
-})
+});
+Pais.hasMany(Region, {
+    foreignKey: {
+        name: 'region_pais_id',
+        allowNull: false
+    }
+});
+Region.hasMany(Comuna, {
+    foreignKey: {
+        name: 'comuna_region_id',
+        allowNull: false
+    }
+});
+
 
