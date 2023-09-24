@@ -9,6 +9,10 @@ const Vehiculo = sequelize.define('Vehiculo', {
         primaryKey: true,
         allowNull: false
     },
+    veh_propietario_id: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
     veh_vin: {
         type: DataTypes.STRING(45),
         unique: true,

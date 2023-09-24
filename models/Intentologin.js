@@ -10,6 +10,10 @@ const Intentologin = sequelize.define('Intentologin', {
         primaryKey: true,
         allowNull: false
     },
+    int_login_user_id: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
     int_login_fecha_hora: {
         type: DataTypes.DATE,
         allowNull: false

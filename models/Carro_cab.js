@@ -9,6 +9,10 @@ const Carro_cab = sequelize.define('Carro_cab', {
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
         allowNull: false
+    },
+    carro_cab_prop_id: {
+        type: DataTypes.UUID,
+        allowNull: false
     }
 },
     {

@@ -5,7 +5,6 @@ const sequelize = require('../db-connection');
 const Proveedor = sequelize.define('Proveedor', {
     proveedor_id: {
         type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
         allowNull: false
     },
@@ -34,15 +33,15 @@ const Proveedor = sequelize.define('Proveedor', {
         type: DataTypes.STRING(10),
         allowNull: true
     },
-    prov_desp_pais_id: {
+    prov_dir_pais_id: {
         type: DataTypes.UUID,
         allowNull: false
     },
-    prov_desp_region_id: {
+    prov_dir_region_id: {
         type: DataTypes.UUID,
         allowNull: false
     },
-    prov_desp_comuna_id: {
+    prov_dir_comuna_id: {
         type: DataTypes.UUID,
         allowNull: false
     },

@@ -4,9 +4,14 @@ const sequelize = require('../db-connection');
 
 const Sesion = sequelize.define('Sesion', {
     sesion_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
+        allowNull: false
+    },
+    sesion_user_id: {
+        type: DataTypes.UUID,
+        allowNull: false
     },
     sesion_inicio: {
         type: DataTypes.DATE,

@@ -20,7 +20,7 @@ const User = sequelize.define('User', {
         allowNull: false
     },
     user_perfil: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
         allowNull: false
     },
     user_email: {

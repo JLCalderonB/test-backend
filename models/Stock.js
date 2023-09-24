@@ -9,8 +9,20 @@ const Stock = sequelize.define('Stock', {
         primaryKey: true,
         allowNull: false
     },
+    stock_prov_id: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
     stock_fec_vig: {
         type: DataTypes.DATE,
+        allowNull: false
+    },
+    stock_repuesto_id: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
+    stock_num_parte: {
+        type: DataTypes.STRING(45),
         allowNull: false
     },
     stock_desc_parte: {

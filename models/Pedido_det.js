@@ -9,8 +9,16 @@ const Pedido_det = sequelize.define('Pedido_det', {
         primaryKey: true,
         allowNull: false
     },
+    ped_det_cab_id: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
     ped_det_item_num: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.SMALLINT,
+        allowNull: false
+    },
+    ped_det_stock_id: {
+        type: DataTypes.UUID,
         allowNull: false
     },
     ped_det_rep_desc: {

@@ -5,7 +5,6 @@ const sequelize = require('../db-connection');
 const Propietario = sequelize.define('Propietario', {
     propietario_id: {
         type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
         allowNull: false
     },
