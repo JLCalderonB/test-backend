@@ -5,9 +5,10 @@ const sequelize = require('../db-connection');
 
 const Pais = sequelize.define('Pais', {
     pais_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
+        allowNull: false
     },
     pais_abrev: {
         type: DataTypes.STRING(3),
