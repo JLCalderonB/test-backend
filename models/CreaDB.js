@@ -35,5 +35,42 @@ Region.hasMany(Comuna, {
         allowNull: false
     }
 });
+Pais.hasOne(Propietario, {
+    foreignKey: {
+        name: 'prop_fact_pais_id',
+        allowNull: false
+    }
+});
+Region.hasOne(Propietario, {
+    foreignKey: {
+        name: 'prop_fact_region_id',
+        allowNull: false
+    }
+});
+Comuna.hasOne(Propietario, {
+    foreignKey: {
+        name: 'prop_fact_comuna_id',
+        allowNull: false
+    }
+});
+Pais.hasOne(Propietario, {
+    foreignKey: {
+        name: 'prop_desp_pais_id',
+        allowNull: false
+    }
+});
+Region.hasOne(Propietario, {
+    foreignKey: {
+        name: 'prop_desp_region_id',
+        allowNull: false
+    }
+});
+Comuna.hasOne(Propietario, {
+    foreignKey: {
+        name: 'prop_desp_comuna_id',
+        allowNull: false
+    }
+});
+
 
 

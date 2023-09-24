@@ -4,8 +4,6 @@ const CreatDB = require('./models/CreaDB'); // Ajusta la ruta según tu estructu
 
 const app = express();
 
-
-
 // Verifica si la conexión a la base de datos es exitosa
 sequelize
     .authenticate()

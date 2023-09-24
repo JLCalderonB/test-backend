@@ -22,37 +22,29 @@ const Proveedor = sequelize.define('Proveedor', {
         type: DataTypes.STRING(45),
         allowNull: false
     },
-    prov_fact_calle: {
+    prov_dir_calle: {
         type: DataTypes.STRING(45),
         allowNull: false
     },
-    prov_fact_numero: {
+    prov_dir_numero: {
         type: DataTypes.STRING(10),
         allowNull: false
     },
-    prov_fact_block_depto: {
+    prov_dir_block_depto: {
         type: DataTypes.STRING(10),
         allowNull: true
     },
-    prov_desp_calle: {
-        type: DataTypes.STRING(45),
+    prov_desp_pais_id: {
+        type: DataTypes.UUID,
         allowNull: false
     },
-    prov_desp_numero: {
-        type: DataTypes.STRING(10),
+    prov_desp_region_id: {
+        type: DataTypes.UUID,
         allowNull: false
     },
-    prov_desp_block_depto: {
-        type: DataTypes.STRING(10),
-        allowNull: true
-    },
-    prov_desp_geo_longitud: {
-        type: DataTypes.DECIMAL(8, 6),
-        allowNull: true
-    },
-    prov_desp_geo_latitud: {
-        type: DataTypes.DECIMAL(8, 6),
-        allowNull: true
+    prov_desp_comuna_id: {
+        type: DataTypes.UUID,
+        allowNull: false
     },
     prov_fono_pais: {
         type: DataTypes.SMALLINT,

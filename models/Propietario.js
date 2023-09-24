@@ -38,6 +38,18 @@ const Propietario = sequelize.define('Propietario', {
         type: DataTypes.STRING(10),
         allowNull: true
     },
+    prop_fact_pais_id: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
+    prop_fact_region_id: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
+    prop_fact_comuna_id: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
     prop_desp_calle: {
         type: DataTypes.STRING(45),
         allowNull: false
@@ -49,6 +61,18 @@ const Propietario = sequelize.define('Propietario', {
     prop_desp_block_depto: {
         type: DataTypes.STRING(10),
         allowNull: true
+    },
+    prop_desp_pais_id: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
+    prop_desp_region_id: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
+    prop_desp_comuna_id: {
+        type: DataTypes.UUID,
+        allowNull: false
     },
     prop_desp_geo_longitud: {
         type: DataTypes.DECIMAL(8, 6),
