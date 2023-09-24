@@ -16,8 +16,8 @@ const Pedido_cab = sequelize.define('Pedido_cab', {
         unique: true,
         allowNull: false
     },
-    ped_pendiente: {
-        type: DataTypes.TINYINT,
+    ped_estado: {
+        type: DataTypes.STRING(45),
         allowNull: false
     },
     ped_fecha: {
@@ -52,6 +52,18 @@ const Pedido_cab = sequelize.define('Pedido_cab', {
         type: DataTypes.STRING(10),
         allowNull: true
     },
+    ped_fact_pais_id: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
+    ped_fact_region_id: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
+    ped_fact_comuna_id: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
     ped_desp_calle: {
         type: DataTypes.STRING(45),
         allowNull: false
@@ -63,6 +75,18 @@ const Pedido_cab = sequelize.define('Pedido_cab', {
     ped_desp_block_depto: {
         type: DataTypes.STRING(10),
         allowNull: true
+    },
+    ped_desp_pais_id: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
+    ped_desp_region_id: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
+    ped_desp_comuna_id: {
+        type: DataTypes.UUID,
+        allowNull: false
     },
     ped_desp_geo_longitud: {
         type: DataTypes.DECIMAL(8, 6),
