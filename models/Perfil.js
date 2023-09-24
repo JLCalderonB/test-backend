@@ -5,7 +5,7 @@ const sequelize = require('../db-connection');
 
 const Perfil = sequelize.define('Perfil', {
     perfil_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
         allowNull: false,
         primaryKey: true
     },
