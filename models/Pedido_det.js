@@ -21,6 +21,10 @@ const Pedido_det = sequelize.define('Pedido_det', {
         type: DataTypes.UUID,
         allowNull: false
     },
+    ped_det_nro_parte: {
+        type: DataTypes.STRING(45),
+        allowNull: false
+    },
     ped_det_rep_desc: {
         type: DataTypes.STRING(45),
         allowNull: false
