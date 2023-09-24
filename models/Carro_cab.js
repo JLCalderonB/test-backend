@@ -12,6 +12,7 @@ const Carro_cab = sequelize.define('Carro_cab', {
     },
     carro_cab_prop_id: {
         type: DataTypes.UUID,
+        unique: true,
         allowNull: false
     }
 },
