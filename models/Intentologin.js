@@ -5,8 +5,8 @@ const sequelize = require('../db-connection');
 
 const Intentologin = sequelize.define('Intentologin', {
     intento_login_id: {
-        type: DataTypes.INTEGER,
-        autoincrement: true,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
         allowNull: false
     },
