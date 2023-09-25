@@ -36,6 +36,7 @@ app.get('/', (req, res) => res.json('TFM API working!'));
 // Create a new Perfil
 app.post('/perfil', async (req, res) => {
     try {
+        console.log(req.body);
         const { perfil_id, perfil_desc } = req.body;
         const Perfil = await Perfil.create({ perfil_id, perfil_desc });
         res.status(201).json(Perfil);
