@@ -84,7 +84,7 @@ app.get('/perfiles/:id', async (req, res) => {
         if (!perfil) {
             res.status(404).json({ error: 'Perfil not found' });
         } else {
-            res.status(200).json(book);
+            res.status(200).json(perfil);
         }
     } catch (error) {
         res.status(500).json({ error: 'Internal server error' });
