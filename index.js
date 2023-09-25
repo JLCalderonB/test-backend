@@ -1,11 +1,10 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 
 const sequelize = require('./db-connection');
 const CreatDB = require('./models/CreaDB'); // Ajusta la ruta según tu estructura de carpetas
 
 const app = express();
-app.use(bodyParser.json());
+app.use(express.json());
 
 
 // Verifica si la conexión a la base de datos es exitosa
