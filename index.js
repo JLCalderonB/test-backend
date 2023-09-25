@@ -2,6 +2,8 @@ const express = require('express');
 const { DataTypes } = require('sequelize');
 
 const sequelize = require('./db-connection');
+//const CreatDB = require('./models/CreaDB'); // Ajusta la ruta según tu estructura de carpetas
+
 
 const app = express();
 app.use(express.json());
@@ -28,7 +30,21 @@ sequelize
 })();
 // Define tus modelos y relaciones Sequelize aquí
 
-const CreatDB = require('./models/CreaDB'); // Ajusta la ruta según tu estructura de carpetas
+const Perfil = sequelize.define('Perfil', {
+    perfil_id: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        primaryKey: true
+    },
+    perfil_desc: {
+        type: DataTypes.STRING(45),
+        allowNull: false
+    }
+},
+    {
+        freezeTableName: true,
+        Timestamps: false
+    });
 
 
 // Rutas de tu aplicación Express
