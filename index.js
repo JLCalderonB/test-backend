@@ -80,8 +80,8 @@ app.get('/perfiles', async (req, res) => {
 // Get a single perfil by ID
 app.get('/perfiles/:id', async (req, res) => {
     try {
-        const Perfil = await Perfil.findByPk(req.params.id);
-        if (!Perfil) {
+        const perfil = await Perfil.findByPk(req.params.id);
+        if (!perfil) {
             res.status(404).json({ error: 'Perfil not found' });
         } else {
             res.status(200).json(book);
@@ -95,12 +95,12 @@ app.get('/perfiles/:id', async (req, res) => {
 app.put('/perfiles/:id', async (req, res) => {
     try {
         const { perfil_id, perfil_desc } = req.body;
-        const Perfil = await Perfil.findByPk(req.params.id);
-        if (!Perfil) {
+        const perfil = await Perfil.findByPk(req.params.id);
+        if (!perfil) {
             res.status(404).json({ error: 'Perfil not found' });
         } else {
-            Perfil.perfil_id = perfil_id || Perfil.perfil_id;
-            Perfil.perfil_desc = perfil_desc || Perfil.perfil_desc;
+            perfil.perfil_id = perfil_id || perfil.perfil_id;
+            perfil.perfil_desc = perfil_desc || perfil.perfil_desc;
             await Perfil.save();
             res.status(200).json(book);
         }
@@ -112,8 +112,8 @@ app.put('/perfiles/:id', async (req, res) => {
 // Delete a perfil by ID
 app.delete('/perfil/:id', async (req, res) => {
     try {
-        const Perfil = await Perfil.findByPk(req.params.id);
-        if (!Perfil) {
+        const perfil = await Perfil.findByPk(req.params.id);
+        if (!perfil) {
             res.status(404).json({ error: 'Perfil not found' });
         } else {
             await Perfil.destroy();
