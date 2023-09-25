@@ -70,8 +70,8 @@ app.post('/perfil', async (req, res) => {
 // Get all perfiles
 app.get('/perfiles', async (req, res) => {
     try {
-        const Perfil = await Perfil.findAll();
-        res.status(200).json(Perfil);
+        const perfil = await Perfil.findAll();
+        res.status(200).json(perfil);
     } catch (error) {
         res.status(500).json({ error: 'Internal server error' });
     }
