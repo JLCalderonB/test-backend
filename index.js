@@ -38,8 +38,8 @@ app.post('/perfil', async (req, res) => {
     try {
         console.log(req.body);
         const { perfil_id, perfil_desc } = req.body;
-        const Perfil = await Perfil.create({ perfil_id, perfil_desc });
-        res.status(201).json(Perfil);
+        const perfil = await perfil.create({ perfil_id, perfil_desc });
+        res.status(201).json(perfil);
     } catch (error) {
         console.log(error);
         res.status(500).json({ error: 'Internal server error' });
