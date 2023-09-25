@@ -27,6 +27,10 @@ sequelize.sync({ alter: true })
 // Define tus modelos y relaciones Sequelize aquí
 
 // Rutas de tu aplicación Express
+app.use((req, res, next) => {
+    next();
+});
+
 // Create a new Perfil
 app.post('/perfil', async (req, res) => {
     try {
