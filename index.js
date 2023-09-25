@@ -31,6 +31,8 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get('/', (req, res) => res.json('TFM API working!'));
+
 // Create a new Perfil
 app.post('/perfil', async (req, res) => {
     try {
