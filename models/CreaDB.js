@@ -58,7 +58,7 @@ Region.hasMany(Comuna, {
 });
 
 // FOREIGN KEYS for Propietario table
-User.hasOne(Proveedor, {
+User.hasOne(Propietario, {
     foreignKey: {
         name: 'propietario_id',
         allowNull: false
