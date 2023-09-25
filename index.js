@@ -1,4 +1,5 @@
 const express = require('express');
+const { DataTypes } = require('sequelize');
 
 const sequelize = require('./db-connection');
 const CreatDB = require('./models/CreaDB'); // Ajusta la ruta según tu estructura de carpetas
