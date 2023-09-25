@@ -17,13 +17,15 @@ sequelize
         console.error('Error al conectar a la base de datos:', error);
     });
 
-sequelize.sync({ alter: true })
-    .then(() => {
-        console.log('Modelos sincronizados con la base de datos');
-    })
-    .catch(err => {
-        console.error('Error al sincronizar modelos:', err);
-    });
+(async () => {
+    sequelize.sync()
+        .then(() => {
+            console.log('Modelos sincronizados con la base de datos');
+        })
+        .catch(err => {
+            console.error('Error al sincronizar modelos:', err);
+        });
+})();
 // Define tus modelos y relaciones Sequelize aquí
 
 // Rutas de tu aplicación Express
