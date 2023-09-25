@@ -23,6 +23,7 @@ const Sesion = sequelize.define('Sesion', {
     },
     sesion_token: {
         type: DataTypes.STRING(45),
+        unique: true,
         allowNull: false
     }
 },
