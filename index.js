@@ -38,7 +38,7 @@ app.post('/perfil', async (req, res) => {
     try {
         console.log(req.body);
         const { perfil_id, perfil_desc } = req.body;
-        const perfil = await perfil.create({ perfil_id, perfil_desc });
+        const perfil = await Perfil.create({ perfil_id, perfil_desc });
         res.status(201).json(perfil);
     } catch (error) {
         console.log(error);
