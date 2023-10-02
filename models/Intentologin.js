@@ -1,35 +1,44 @@
-
-const { DataTypes } = require('sequelize');
-const sequelize = require('../db-connection');
-
-
-const Intentologin = sequelize.define('Intentologin', {
-    intento_login_id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-        primaryKey: true,
-        allowNull: false
-    },
-    int_login_user_id: {
-        type: DataTypes.UUID,
-        allowNull: false
-    },
-    int_login_fecha_hora: {
-        type: DataTypes.DATE,
-        allowNull: false
-    },
-    int_login_ip_address: {
-        type: DataTypes.STRING(45),
-        allowNull: false
-    },
-    int_login_exito: {
-        type: DataTypes.TINYINT,
-        allowNull: false
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Intentologin extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
-},
-    {
-        freezeTableName: true,
-        Timestamps: false
-    });
-
-module.exports = Intentologin;
+  }
+  Intentologin.init({
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      allowNull: false,
+      primaryKey: true
+    },
+    user_id: {
+      type: DataTypes.UUID,
+      allowNull: false
+    },
+    fecha_hora: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW
+    },
+    ip_address: {
+      type: DataTypes.STRING(16)
+    },
+    exito: {
+      type: DataTypes.TINYINT,
+      defaultValue: 0
+    }
+  }, {
+    sequelize,
+    tableName: 'intentologin',
+    modelName: 'Intentologin',
+  });
+  return Intentologin;
+};

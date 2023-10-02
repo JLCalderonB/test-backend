@@ -1,67 +1,77 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../db-connection');
-
-
-const Stock = sequelize.define('Stock', {
-    stock_id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-        primaryKey: true,
-        allowNull: false
-    },
-    stock_prov_id: {
-        type: DataTypes.UUID,
-        allowNull: false
-    },
-    stock_fec_vig: {
-        type: DataTypes.DATE,
-        allowNull: false
-    },
-    stock_repuesto_id: {
-        type: DataTypes.UUID,
-        allowNull: false
-    },
-    stock_num_parte: {
-        type: DataTypes.STRING(45),
-        allowNull: false
-    },
-    stock_desc_parte: {
-        type: DataTypes.STRING(45),
-        allowNull: false
-    },
-    stock_um_vta: {
-        type: DataTypes.STRING(10),
-        allowNull: false
-    },
-    stock_precio_unitario: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
-    stock_um_desp: {
-        type: DataTypes.STRING(10),
-        allowNull: false
-    },
-    stock_onhand: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
-    stock_encarrito: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
-    stock_enpedido: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
-    stock_disponible: {
-        type: DataTypes.INTEGER,
-        allowNull: false
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Stock extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
-},
-    {
-        freezeTableName: true,
-        Timestamps: false
+  }
+  Stock.init({
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      allowNull: false,
+      primaryKey: true
+    },
+    prov_id: {
+      type: DataTypes.UUID,
+      allowNull: false
+    },
+    fec_vig: {
+      type: DataTypes.DATEONLY,
+      allowNull: false
+    },
+    repuesto_id: {
+      type: DataTypes.UUID,
+      allowNull: false
+    },
+    num_parte: {
+      type: DataTypes.STRING(45),
+      allowNull: false
+    },
+    desc_parte: {
+      type: DataTypes.STRING(45),
+      allowNull: false
+    },
+    um_vta: {
+      type: DataTypes.STRING(3),
+      allowNull: false
+    },
+    precio_uni: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    um_desp: {
+      type: DataTypes.STRING(3),
+      allowNull: false
+    },
+    onhand: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    encarrito: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    enpedido: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    disponible: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
-);
-
-module.exports = Stock;
+  }, {
+    sequelize,
+    tableName: 'stock',
+    modelName: 'Stock',
+  });
+  return Stock;
+};

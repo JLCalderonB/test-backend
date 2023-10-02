@@ -1,35 +1,45 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../db-connection');
-
-
-const Sesion = sequelize.define('Sesion', {
-    sesion_id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-        primaryKey: true,
-        allowNull: false
-    },
-    sesion_user_id: {
-        type: DataTypes.UUID,
-        allowNull: false
-    },
-    sesion_inicio: {
-        type: DataTypes.DATE,
-        allowNull: false
-    },
-    sesion_fin: {
-        type: DataTypes.DATE,
-        allowNull: true
-    },
-    sesion_token: {
-        type: DataTypes.STRING(45),
-        unique: true,
-        allowNull: false
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Sesion extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
-},
-    {
-        freezeTableName: true,
-        Timestamps: false
-    });
-
-module.exports = Sesion;
+  }
+  Sesion.init({
+    id: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      defaultValue: DataTypes.UUIDV4,
+      allowNull: false
+    },
+    user_id: {
+      type: DataTypes.UUID,
+      allowNull: false
+    },
+    inicio: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    fin: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    token: {
+      type: DataTypes.STRING(45),
+      allowNull: false
+    }
+  }, {
+    sequelize,
+    tableName: 'sesion',
+    modelName: 'Sesion',
+  });
+  return Sesion;
+};

@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "Utfsmehc2023.",
+    "database": "dbtest_local",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "admin",
+    "password": "masterTFM",
+    "database": "dbtest",
+    "host": "db-autoparts.cssymwvopatw.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql"
+  }
+}

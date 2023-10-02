@@ -1,0 +1,31 @@
+npx sequelize-cli model:generate --name Carro_cab --attributes carro_cab_id:UUID,carro_prop_id:UUID
+
+npx sequelize-cli model:generate --name Carro_det --attributes carro_det_id:UUID,carro_det_cab_id:UUID,carro_det_correlativo:smallint,carro_det_stock_id:UUID,carro_det_fec_vig:date,carro_det_repuesto_id:UUID,carro_det_num_parte:string,carro_det_cant:integer,carro_det_precio_unitario:integer
+
+npx sequelize-cli model:generate --name Comuna --attributes comuna_id:UUID, comuna_region_id:UUID,comuna_nombre:string 
+
+npx sequelize-cli model:generate --name Intentologin --attributes intento_login_id:UUID, int_login_user_id:UUID, int_login_fecha_hora:date,int_login_ip_address:string,int_logim_exito:tinyint 
+
+npx sequelize-cli model:generate --name Pais --attributes pais_id:UUID, pais_abrev:string, pais_nombre:string 
+
+npx sequelize-cli model:generate --name Pedido_cab --attributes pedido_cab_id:UUID,ped_num:integer,ped_estado:string,ped_fecha:date,ped_comprador_id:UUID,ped_neto:integer,ped_iva:integer,ped_total:integer,ped_fact_calle:string,ped_fact_num:string,ped_fact_block_depto:string,ped_fact_pais_id:UUID,ped_fact_region_id:UUID,ped_fact_comuna_id:UUID,ped_desp_calle:string,ped_desp_num:string,ped_desp_block_depto:string,ped_desp_pais_id:UUID,ped_desp_region_id:UUID,ped_desp_comuna_id:UUID, ped_desp_geo_long:decimal, ped_desp_geo_lat:decimal, ped_fono_pais:smallint, ped_fono_zona:smallint, ped_fono_num:integer 
+
+npx sequelize-cli model:generate --name Pedido_det --attributes ped_det_id:UUID, ped_det_cab_id:UUID,ped_det_item_num:smallint,ped_det_stock_id:UUID,ped_det_nro_parte:string,ped_det_nro_parte:string,ped_det_resp_desc:string,ped_det_cantidad:integer, ped_det_um_vta:string, ped_det_precio:integer,ped_det_um_desp:string, ped_det_tot_item:integer 
+
+npx sequelize-cli model:generate --name Perfil --attributes perfil_id:UUID, perfil_desc:string 
+
+npx sequelize-cli model:generate --name Propietario --attributes propietario_id:UUID,prop_rut_num:integer,prop_rut_dig:char,prop_nombres:string,prop_apellidos:string,prop_fact_calle:string,prop_fact_numero:string,prop_fact_block_depto:string,prop_fact_pais_id:UUID,prop_fact_region_id:UUID,prop_fact_comuna_id:UUID,prop_desp_calle:string,prop_desp_numero:string,prop_desp_block_depto:string,prop_desp_pais_id:UUID,prop_desp_region_id:UUID,prop_desp_comuna_id:UUID,prop_desp_geo_long:decimal,prop_desp_geo_lat:decimal,prop_fono_pais:smallint,prop_fono_zona:smallint,prop_fono_num:integer 
+
+npx sequelize-cli model:generate --name Proveedor --attributes proveedor_id:UUID,prov_rut_num:integer,prov_rut_dig:char,prov_razon_social:string,prov_dir_calle:string,prov_dir_numero:string,prov_dir_block_depto:string,prov_dir_pais_id:UUID,prov_dir_region_id:UUID,prov_dir_comuna_id:UUID,prov_fono_pais:smallint,prov_fono_zona:smallint,prov_fono_num:integer 
+
+npx sequelize-cli model:generate --name Region --attributes region_id:UUID,region_pais_id:UUID,region_abrev:string,region_nombre:string
+
+npx sequelize-cli model:generate --name Repuesto --attributes repuesto_id:UUID,rep_num_parte:string,rep_desc:string 
+
+npx sequelize-cli model:generate --name Sesion --attributes sesion_id:UUID,sesion_user_id:UUID,sesion_inicio:date,sesion_fin:date,sesion_token:string 
+
+npx sequelize-cli model:generate --name Stock --attributes stock_id:UUID,stock_prov_id:UUID,stock_fec_vig:date,stock_repuesto_id:UUID,stock_num_parte:string,stock_desc_parte:string,stock_um_vta:string,stock_precio_uni:integer,stock_um_desp:string,stock_onhand:integer,stock_encarrito:integer,stock_enpedido:integer,stock_disponible:integer 
+
+npx sequelize-cli model:generate --name User --attributes user_id:UUID,username:string,password:string,user_perfil:UUID,user_email:string
+
+npx sequelize-cli model:generate --name Vehiculo --attributes vehiculo_id:UUID,veh_propietario_id:UUID,veh_vin:string,veh_placa_patente:string,veh_marca:string,veh_modelo:string,veh_year:smallint,veh_motor_num:string 

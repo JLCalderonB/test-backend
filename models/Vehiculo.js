@@ -1,48 +1,58 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../db-connection');
-
-
-const Vehiculo = sequelize.define('Vehiculo', {
-    vehiculo_id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-        primaryKey: true,
-        allowNull: false
-    },
-    veh_propietario_id: {
-        type: DataTypes.UUID,
-        allowNull: false
-    },
-    veh_vin: {
-        type: DataTypes.STRING(45),
-        unique: true,
-        allowNull: false
-    },
-    veh_placa_patente: {
-        type: DataTypes.STRING(45),
-        unique: true,
-        allowNull: false
-    },
-    veh_marca: {
-        type: DataTypes.STRING(45),
-        allowNull: false
-    },
-    veh_modelo: {
-        type: DataTypes.STRING(45),
-        allowNull: false
-    },
-    veh_year: {
-        type: DataTypes.SMALLINT,
-        allowNull: false
-    },
-    veh_motor_num: {
-        type: DataTypes.STRING(45),
-        allowNull: true
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Vehiculo extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
-},
-    {
-        freezeTableName: true,
-        Timestamps: false
-    });
-
-module.exports = Vehiculo;
+  }
+  Vehiculo.init({
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      allowNull: false,
+      primaryKey: true
+    },
+    propietario_id: {
+      type: DataTypes.UUID,
+      allowNull: false
+    },
+    vin: {
+      type: DataTypes.STRING(45),
+      allowNull: false,
+      unique: true
+    },
+    placa_patente: {
+      type: DataTypes.STRING(10),
+      allowNull: false
+    },
+    marca: {
+      type: DataTypes.STRING(45),
+      allowNull: false
+    },
+    modelo: {
+      type: DataTypes.STRING(45),
+      allowNull: false
+    },
+    year: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    motor_num: {
+      type: DataTypes.STRING(45),
+      allowNull: true
+    }
+  }, {
+    sequelize,
+    tableName: 'vehiculo',
+    modelName: 'Vehiculo',
+  });
+  return Vehiculo;
+};

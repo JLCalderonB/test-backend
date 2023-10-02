@@ -1,27 +1,37 @@
-
-const { DataTypes } = require('sequelize');
-const sequelize = require('../db-connection');
-
-
-const Pais = sequelize.define('Pais', {
-    pais_id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-        primaryKey: true,
-        allowNull: false
-    },
-    pais_abrev: {
-        type: DataTypes.STRING(3),
-        allowNull: false
-    },
-    pais_nombre: {
-        type: DataTypes.STRING(45),
-        allowNull: false
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Pais extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
-},
-    {
-        freezeTableName: true,
-        Timestamps: false
-    });
-
-module.exports = Pais;
+  }
+  Pais.init({
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      allowNull: false,
+      primaryKey: true
+    },
+    abrev: {
+      type: DataTypes.STRING(3),
+      allowNull: false
+    },
+    nombre: {
+      type: DataTypes.STRING(45),
+      allowNull: false
+    }
+  }, {
+    sequelize,
+    tableName: 'pais',
+    modelName: 'Pais',
+  });
+  return Pais;
+};
