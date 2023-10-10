@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors')
 const { sequelize,
     Carro_cab,
     Carro_det,
@@ -18,6 +19,7 @@ const { sequelize,
     Vehiculo } = require('./models');
 
 const app = express();
+app.use(cors());
 
 app.use(express.json());
 //-------------------------------------------------------------------------------------------
@@ -30,6 +32,16 @@ app.post('/carros/cab', async (req, res) => {
     } catch (err) {
         console.log(err);
         return res.status(500).json(err);
+    }
+})
+app.get('/carros/cab', async (req, res) => {
+    const prop_id = req.params.prop_id;
+    try {
+        const carros = await Carro_cab.findAll();
+        return res.json(carros);
+    } catch (err) {
+        console.log(err);
+        return res.status(500).json({ error: 'Something went wrong!' });
     }
 })
 app.get('/carros/cab/:prop_id', async (req, res) => {
