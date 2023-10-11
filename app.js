@@ -19,8 +19,8 @@ const { sequelize,
     User,
     Vehiculo } = require('./models');
 const dotenv = require('dotenv');
-function generateAccessToken(username) {
-    return jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
+function generateAccessToken(user_id) {
+    return jwt.sign(user_id, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
 }
 
 function authenticateToken(req, res, next) {
