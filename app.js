@@ -1081,6 +1081,7 @@ app.post('/sesiones', async (req, res) => {
         return res.json(sesion);
     } catch (err) {
         console.log(err);
+        console.log(token);
         return res.status(500).json(err);
     }
 })
