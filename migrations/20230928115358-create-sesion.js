@@ -22,7 +22,7 @@ module.exports = {
         allowNull: true
       },
       token: {
-        type: DataTypes.STRING(45),
+        type: DataTypes.STRING,
         allowNull: false
       },
       createdAt: {
