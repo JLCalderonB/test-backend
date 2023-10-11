@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors')
+const jwt = require('jsonwebtoken');
 const { sequelize,
     Carro_cab,
     Carro_det,
@@ -17,9 +18,38 @@ const { sequelize,
     Stock,
     User,
     Vehiculo } = require('./models');
+const dotenv = require('dotenv');
+function generateAccessToken(username) {
+    return jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
+}
+
+function authenticateToken(req, res, next) {
+    const authHeader = req.headers['authorization']
+    const token = authHeader && authHeader.split(' ')[1]
+
+    if (token == null) return res.sendStatus(401)
+
+    jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
+        console.log(err)
+
+        if (err) return res.sendStatus(403)
+
+        req.user = user
+
+        next()
+    })
+}
+
+// get config vars
+dotenv.config();
+
+// access config var
+process.env.TOKEN_SECRET;
 
 const app = express();
 app.use(cors());
+
+
 
 app.use(express.json());
 //-------------------------------------------------------------------------------------------
@@ -1041,8 +1071,9 @@ app.put('/repuestos/:id', async (req, res) => {
 //-------------------------------------------------------------------------------------------
 // Sesion CRUD
 app.post('/sesiones', async (req, res) => {
-    const { user_id, inicio, fin, token } = req.body;
+    const { user_id, inicio, fin } = req.body;
     try {
+        const token = generateAccessToken({ user_id: req.body.user_id });
         const sesion = await Sesion.create({ user_id, inicio, fin, token })
         return res.json(sesion);
     } catch (err) {
@@ -1218,7 +1249,7 @@ app.post('/users', async (req, res) => {
         return res.status(500).json(err);
     }
 })
-app.get('/users', async (req, res) => {
+app.get('/users', authenticateToken, async (req, res) => {
     try {
         const users = await User.findAll();
         return res.json(users);
