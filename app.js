@@ -1075,7 +1075,7 @@ app.put('/repuestos/:id', async (req, res) => {
 app.post('/sesiones', async (req, res) => {
     const { user_id, inicio, fin } = req.body;
     try {
-        const tok = "1"; //generateAccessToken({ userid: req.body.user_id });
+        const tok = 1; //generateAccessToken({ userid: req.body.user_id });
         console.log(tok);
         const sesion = await Sesion.create({ user_id, inicio, fin, tok });
         return res.json(sesion);
