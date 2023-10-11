@@ -18,9 +18,15 @@ const { sequelize,
     Stock,
     User,
     Vehiculo } = require('./models');
+
 const dotenv = require('dotenv');
-function generateAccessToken(user_id) {
-    return jwt.sign(user_id, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
+// get config vars
+dotenv.config();
+// access config var
+process.env.TOKEN_SECRET;
+
+function generateAccessToken(userid) {
+    return jwt.sign(userid, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
 }
 
 function authenticateToken(req, res, next) {
@@ -40,11 +46,7 @@ function authenticateToken(req, res, next) {
     })
 }
 
-// get config vars
-dotenv.config();
 
-// access config var
-process.env.TOKEN_SECRET;
 
 const app = express();
 app.use(cors());
@@ -1073,7 +1075,7 @@ app.put('/repuestos/:id', async (req, res) => {
 app.post('/sesiones', async (req, res) => {
     const { user_id, inicio, fin } = req.body;
     try {
-        const token = generateAccessToken({ user_id: req.body.user_id });
+        const token = generateAccessToken({ userid: req.body.user_id });
         console.log(token);
         const sesion = await Sesion.create({ user_id, inicio, fin, token })
         return res.json(sesion);
