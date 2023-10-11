@@ -22,10 +22,10 @@ const { sequelize,
 const dotenv = require('dotenv');
 // get config vars
 dotenv.config();
-// access config var
-process.env.TOKEN_SECRET;
 
 function generateAccessToken(userid) {
+    console.log(userid);
+    console.log(process.env.TOKEN_SECRET);
     return jwt.sign(userid, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
 }
 
@@ -1077,7 +1077,7 @@ app.post('/sesiones', async (req, res) => {
     try {
         const token = generateAccessToken({ userid: req.body.user_id });
         console.log(token);
-        const sesion = await Sesion.create({ user_id, inicio, fin, token })
+        const sesion = await Sesion.create({ user_id, inicio, fin, token });
         return res.json(sesion);
     } catch (err) {
         console.log(err);
